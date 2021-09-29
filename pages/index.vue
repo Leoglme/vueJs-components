@@ -1,53 +1,43 @@
 <template>
-  <section class="section">
-    <div class="columns is-mobile">
-      <card
-        title="Free"
-        icon="github"
-      >
-        Open source on <a href="https://github.com/buefy/buefy">
-          GitHub
-        </a>
-      </card>
-
-      <card
-        title="Responsive"
-        icon="cellphone-link"
-      >
-        <b class="has-text-grey">
-          Every
-        </b> component is responsive
-      </card>
-
-      <card
-        title="Modern"
-        icon="alert-decagram"
-      >
-        Built with <a href="https://vuejs.org/">
-          Vue.js
-        </a> and <a href="http://bulma.io/">
-          Bulma
-        </a>
-      </card>
-
-      <card
-        title="Lightweight"
-        icon="arrange-bring-to-front"
-      >
-        No other internal dependency
-      </card>
+  <div>
+    <div class="buttons" v-if="showButtons">
+      <b-button type="is-primary" @click="updateView('timePicker')" expanded>Show TimePicker</b-button>
     </div>
-  </section>
+
+    <div class="components" v-if="!showButtons">
+      <b-button type="is-primary" @click="goBack()">Go back</b-button>
+      <TimePicker v-if="isVisible.timePicker"/>
+    </div>
+  </div>
+
 </template>
 
 <script>
-import Card from '~/components/Card'
+
+import TimePicker from "~/components/TimePicker";
 
 export default {
   name: 'HomePage',
 
   components: {
-    Card
+    TimePicker
+  },
+  data(){
+    return {
+      isVisible: {
+        timePicker: false
+      },
+      showButtons: true
+    }
+  },
+  methods: {
+    updateView(component){
+      this.isVisible[component] = true
+      this.showButtons = false;
+    },
+    goBack(){
+      this.showButtons = true;
+    },
   }
 }
 </script>
