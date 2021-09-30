@@ -23,6 +23,8 @@
   },
   "devDependencies": {
     "@nuxt/types": "~2.15.0",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^10.0.0",
     "vuetify-datetime-picker": "^2.1.1"
   }
 }
