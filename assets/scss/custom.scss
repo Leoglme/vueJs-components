@@ -1,0 +1,64 @@
+$theme-colors: (
+  'primary': #6f32c9,
+  'secondary': #833bec,
+  'success': #4bb063,
+  'info': #ff7d50,
+  'warning': #f7b801,
+  'danger': #ff007f,
+  'light': #fff,
+  'dark': #001738,
+);
+
+$fonts: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Lato, Arial, sans-serif;
+
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    &:hover, &:active, &:focus {
+      @if $color == 'warning' {
+        background: darken($value, 4%) !important;
+        border-color: darken($value, 4%) !important;
+      }
+      @else {
+        background: lighten($value, 15%) !important;
+        border-color: lighten($value, 15%) !important;
+      }
+    }
+  }
+  .btn-outline-#{light}{
+    border-color: darken(#fff, 16%) !important;
+    color: darken(#fff, 75.5%) !important;
+
+    &:hover {
+       background: darken(#fff, 8.3%) !important;
+    }
+    &:active {
+      @if $color == 'light' {
+        color: map-get($theme-colors, "primary") !important;
+        border-color: map-get($theme-colors, "primary") !important;
+      }
+    }
+  }
+}
+@import '~/node_modules/bootstrap/scss/bootstrap.scss';
+
+.btn {
+  border-radius: 8px;
+  font-family: $fonts;
+  font-size: 14px;
+  text-transform: none;
+  padding: 9px 14px;
+  line-height: 19px;
+  outline: none;
+  box-shadow: unset !important;
+
+  &-success, &-warning {
+    color: #fff;
+    &:hover, &:focus {
+      color: #fff;
+    }
+  }
+}
+
+
+
