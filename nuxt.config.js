@@ -17,6 +17,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      // <script src="https://kit.fontawesome.com/054fdad312.js" crossOrigin="anonymous"></script>
+      { src: 'https://kit.fontawesome.com/054fdad312.js' }
     ]
   },
 
@@ -40,6 +44,17 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    [
+      "nuxt-fontawesome",
+      {
+        imports: [
+          {
+            set: "@fortawesome/free-solid-svg-icons",
+            icons: ["fas"]
+          }
+        ]
+      }
+    ]
   ],
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

@@ -40,6 +40,7 @@ $fonts: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Lato, Arial, sans-
     }
   }
 }
+
 @import '~/node_modules/bootstrap/scss/bootstrap.scss';
 
 .btn {
@@ -58,7 +59,69 @@ $fonts: Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Lato, Arial, sans-
       color: #fff;
     }
   }
+
+  &[aria-expanded="true"] {
+    color: map-get($theme-colors, "primary") !important;
+    border-color: map-get($theme-colors, "primary") !important;
+    background: #fff !important;
+    & i {
+      color: map-get($theme-colors, "primary") !important;
+      transform: rotate(180deg);
+    }
+  }
 }
 
+.dropdown-toggle {
+  width: 100%;
+  padding-right: 16px;
+  & i {
+    transition: transform .2s;
+  }
+
+  &::after {
+    content: none;
+  }
+}
+
+.dropdown-toggle.btn-outline-light {
+  & i {
+    color: #797979;
+  }
+}
+.dropdown-menu {
+  min-width: 250px;
+  border: none !important;
+  box-shadow: rgba(179, 179, 179, 0.5) 0 6px 32px;
+  margin: 10px 0 0;
+  width: max-content;
+  min-height: 52px;
+  font-size: 14px;
+  border-radius: 8px;
+  position: absolute;
+  transform: translate3d(0px, 39px, 0px);
+  top: 0;
+  left: 0;
+  font-family: $fonts;
+  padding: 10px 0;
+
+  & li {
+    color: #3e3e3e;
+
+    & .dropdown-item {
+      line-height: 32px;
+      padding: 0 20px 0 10px;
+      font-weight: 500;
+      margin: 0 10px 1px;
+      white-space: nowrap;
+      width: auto;
+
+      &:hover, &.active {
+        border-radius: 8px;
+        background-color: map-get($theme-colors, "primary");
+        color: #fff;
+      }
+    }
+  }
+}
 
 

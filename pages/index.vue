@@ -5,6 +5,7 @@
       <b-button @click="updateView('scrollTimer')" expanded>Show Scroll Timer</b-button>
       <b-button @click="updateView('tableList')" expanded>TableList</b-button>
       <b-button @click="updateView('bootstrapButton')" expanded>Custom Boostrap button</b-button>
+      <b-button @click="updateView('boostrapDropdown')" expanded>Custom Boostrap dropdown</b-button>
     </div>
 
     <div class="components" v-if="!showButtons">
@@ -13,6 +14,11 @@
       <ScrollTimerPicker v-if="isVisible.scrollTimer"/>
       <TableList v-model="datas" v-if="isVisible.tableList"/>
       <BootstrapButton v-if="isVisible.bootstrapButton"/>
+      <Dropdown v-if="isVisible.boostrapDropdown"
+                :items="items"
+                color="outline-light"
+                v-model="currentItems">
+      </Dropdown>
     </div>
   </div>
 
@@ -24,6 +30,8 @@ import TimePicker from "~/components/TimePicker";
 import ScrollTimerPicker from "~/components/ScrollTimerPicker";
 import TableList from "~/components/TableList";
 import BootstrapButton from "~/components/BootstrapButton";
+import Dropdown from "~/components/Dropdown";
+
 
 export default {
   name: 'HomePage',
@@ -32,7 +40,8 @@ export default {
     TimePicker,
     ScrollTimerPicker,
     TableList,
-    BootstrapButton
+    BootstrapButton,
+    Dropdown
   },
   data() {
     return {
@@ -41,7 +50,10 @@ export default {
         scrollTimer: false,
         tableList: false,
         bootstrapButton: false,
+        boostrapDropdown: false,
       },
+      items: ['Active Tasks 1', 'Active Tasks 2', 'Active Tasks 3' ],
+      currentItems: 'Active Tasks 1',
       showButtons: true,
       datas: [
         {
@@ -114,6 +126,10 @@ export default {
       console.log('component', component);
       this.isVisible[component] = true
       this.showButtons = false;
+    },
+    dropdownAction(name){
+      alert(name)
+      return null;
     },
     goBack() {
       this.showButtons = true;
