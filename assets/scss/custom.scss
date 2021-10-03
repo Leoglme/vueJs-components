@@ -149,3 +149,97 @@ input, textarea {
     border-color: map-get($theme-colors, "primary");
   }
 }
+
+.modal-content {
+  animation: fadeIn 125ms ease 0s;
+  box-shadow: rgba(70, 80, 90, 0.2) 0 4px 20px;
+  border-radius: 10px;
+  border: 0;
+
+  & .modal-header {
+    border-bottom: 1px solid rgb(229, 232, 236);
+    padding: 8px;
+  }
+}
+
+.modal-backdrop {
+  background-color: rgba(32, 38, 45, 0.2);
+  transition: opacity 125ms ease 0s;
+}
+
+
+
+
+.modal-md {
+  max-width: 560px;
+}
+
+.SearchModal__form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: rgb(32, 38, 45);
+  height: 56px;
+  padding: 0 12px;
+}
+
+.SearchModel__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: map-get($theme-colors, "primary");
+
+  & svg {
+    stroke-width: 1.6;
+  }
+}
+
+.SearchModel__input {
+  font-size: 18px;
+  height: 100%;
+  flex: 1;
+  padding-left: 20px;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  outline: none;
+  box-shadow: none;
+}
+
+.close__modal {
+  cursor: pointer;
+  padding: 2px;
+  animation: fadeIn .2s ease-in forwards;
+  appearance: none;
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  stroke-width: 1.4px;
+
+  &:hover {
+    color: map-get($theme-colors, "primary");
+  }
+}
+
+.modal-fullscreen .modal-dialog {
+  max-width: 100%;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  z-index: 100000;
+
+  & .modal-content {
+    border-radius: 0 !important;
+  }
+}
+
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
