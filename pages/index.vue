@@ -28,23 +28,8 @@
       </Dropdown>
 
 
-      <SearchModal v-if="isVisible.searchModal" :hideFooter="true">
-        <template #modal-title>
+      <SearchModal v-if="isVisible.searchModal">
 
-          <form class="SearchModal__form">
-            <label for="SearchModel__input" class="SearchModel__label" v-if="!isLoading">
-              <svg width="20" height="20" viewBox="0 0 20 20">
-                <path
-                  d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z"
-                  stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round"
-                  stroke-linejoin="round"></path>
-              </svg>
-            </label>
-            <b-spinner style="height: 24px; width: 24px; border-width: 2.5px" variant="primary" v-if="isLoading"/>
-            <input type="search" id="SearchModel__input" placeholder="Search…" class="SearchModel__input">
-          </form>
-
-        </template>
       </SearchModal>
 
 
