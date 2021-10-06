@@ -8,6 +8,7 @@
       <b-button @click="updateView('boostrapDropdown')" expanded>Custom Boostrap dropdown</b-button>
       <b-button @click="updateView('searchModal')" expanded>Search modal</b-button>
       <b-button @click="updateView('addButton')" expanded>Add Item Button</b-button>
+      <b-button @click="updateView('Notification')" expanded>Notification</b-button>
     </div>
 
     <div class="components" v-if="!showButtons">
@@ -31,6 +32,7 @@
       <SearchModal v-if="isVisible.searchModal">
 
       </SearchModal>
+      <Notification v-if="isVisible.Notification"/>
 
 
       <div style="display:flex; flex-direction: column; justify-content: center" v-if="isVisible.addButton">
@@ -89,6 +91,7 @@ import BootstrapButton from "~/components/BootstrapButton";
 import Dropdown from "~/components/Dropdown";
 import AddButton from "~/components/AddButton";
 import SearchModal from "~/components/SearchModal";
+import Notification from "~/components/Notification";
 
 
 export default {
@@ -101,6 +104,7 @@ export default {
     BootstrapButton,
     Dropdown,
     AddButton,
+    Notification,
     SearchModal
   },
   data() {
@@ -118,6 +122,7 @@ export default {
         boostrapDropdown: false,
         addButton: false,
         bootstrapModal: false,
+        Notification: false,
         searchModal: false,
       },
       items: ['Active Tasks 1', 'Active Tasks 2', 'Active Tasks 3'],

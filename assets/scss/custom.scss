@@ -257,8 +257,124 @@ input, textarea {
   overflow-y: auto;
 }
 
+.toasted-container {
+  transition: all 25s ease;
+  padding: 10px 0;
+  &.top-right, &.bottom-right {
+     right: 1% !important;
+  }
+  &.top-left, &.bottom-left{
+    right: 1% !important;
+  }
+}
+
+.toasted {
+  padding: 20px !important;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 30px -5px rgba(0,0,0, 0.05) !important;
+  overflow: hidden;
+  background: #fff !important;
+  margin: 3px 10px !important;
+  animation: revealRight .5s ease;
+  max-width: 340px !important;
+  opacity: 1 !important;
+  transition: all .25s ease,transform .3s ease .1s,max-height .25s ease,clip-path .5s ease .1s,-webkit-transform .3s ease .1s,-webkit-clip-path .5s ease .1s;
+
+  & i {
+    font-size: 18px;
+    margin-right: 16px;
+  }
+
+  & .toasted-content {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 1rem;
+  }
+
+  & .toasted-title {
+    font-size: 16px;
+  }
+
+  & .toasted__action.icon {
+    top: 8px;
+    right: 10px;
+    position: absolute;
+
+    & i {
+      width: 20px;
+      height: 20px;
+
+      &::after, &::before {
+        background: #000;
+        content: "";
+        position: absolute;
+        width: 14px;
+        height: 2px;
+        border-radius: 2px;
+        transition: all .3s ease;
+      }
+      &::after {
+        transform: rotate(45deg);
+      }
+      &::before {
+        transform: rotate(-45deg);
+      }
+    }
+    &:hover {
+      & i::after, & i::before {
+        width: 14px;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &.error, &.success {
+    color: #fff !important;
+
+    & .toasted__action.icon i {
+      &::after, &::before {
+        background: #fff !important;
+      }
+    }
+  }
+
+  &.default {
+    color: rgb(44, 62, 80) !important;
+  }
+
+  &.error {
+    background: #ff4757 !important;
+  }
+  &.success {
+    background: #46c93a !important;
+  }
+
+  &:hover {
+    box-shadow: 0 10px 30px -5px rgba(0,0,0, 0.10) !important;
+    transform: translateY(-32px) !important;
+  }
+}
+
 
 @keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
+}
+@keyframes revealRight {
+  from {
+    clip-path: circle(0% at 100% 100%);
+  }
+  to {
+    clip-path: circle(145% at 100% 50%);
+  }
+}
+
+@keyframes slideToLeft {
+  from {
+    transform: translateX(145%) !important;
+  }
+  to {
+    transform: translateX(0%) !important;
+  }
 }

@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^2.0.2",
+    "@nuxtjs/toast": "^3.3.1",
     "better-scroll": "^2.4.2",
     "bootstrap": "^5.1.1",
     "bootstrap-vue": "^2.21.2",
@@ -25,7 +26,8 @@
     "vue": "^2.6.14",
     "vue-clock-picker": "^0.4.2",
     "vue-ios-timer": "^1.1.1",
-    "vue-scroll-picker": "^0.8.0"
+    "vue-scroll-picker": "^0.8.0",
+    "vue-toasted": "^1.1.28"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
