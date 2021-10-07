@@ -35,6 +35,7 @@
     "@nuxtjs/fontawesome": "^1.1.2",
     "node-sass": "^6.0.1",
     "sass-loader": "^10.0.0",
-    "vuetify-datetime-picker": "^2.1.1"
+    "vuetify-datetime-picker": "^2.1.1",
+    "vuex": "^3.6.2"
   }
 }

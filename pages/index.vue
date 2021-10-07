@@ -9,6 +9,7 @@
       <b-button @click="updateView('searchModal')" expanded>Search modal</b-button>
       <b-button @click="updateView('addButton')" expanded>Add Item Button</b-button>
       <b-button @click="updateView('Notification')" expanded>Notification</b-button>
+      <b-button @click="updateView('DrawerNav')" expanded>DrawerNav</b-button>
     </div>
 
     <div class="components" v-if="!showButtons">
@@ -35,6 +36,7 @@
       <Notification v-if="isVisible.Notification"/>
 
 
+      <DrawerNav v-if="isVisible.DrawerNav"/>
       <div style="display:flex; flex-direction: column; justify-content: center" v-if="isVisible.addButton">
         <div class="mt-3">
           <button class="btn btn-primary"
@@ -92,6 +94,7 @@ import Dropdown from "~/components/Dropdown";
 import AddButton from "~/components/AddButton";
 import SearchModal from "~/components/SearchModal";
 import Notification from "~/components/Notification";
+import DrawerNav from "~/components/DrawerNav";
 
 
 export default {
@@ -105,6 +108,7 @@ export default {
     Dropdown,
     AddButton,
     Notification,
+    DrawerNav,
     SearchModal
   },
   data() {
@@ -123,6 +127,7 @@ export default {
         addButton: false,
         bootstrapModal: false,
         Notification: false,
+        DrawerNav: false,
         searchModal: false,
       },
       items: ['Active Tasks 1', 'Active Tasks 2', 'Active Tasks 3'],
