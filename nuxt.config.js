@@ -34,7 +34,8 @@ export default {
   plugins: [
     {src: './plugins/scrollPicker.js', ssr: false},
     {src: './plugins/toasted.js', ssr: false},
-    '~/plugins/bootstrap.js'
+    {src: './plugins/ripple.js', ssr: false},
+    '~/plugins/bootstrap.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

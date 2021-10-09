@@ -36,7 +36,7 @@
       <Notification v-if="isVisible.Notification"/>
 
 
-      <DrawerNav v-if="isVisible.DrawerNav"/>
+      <DrawerNav v-if="isVisible.DrawerNav" v-model="openSidebar"/>
       <div style="display:flex; flex-direction: column; justify-content: center" v-if="isVisible.addButton">
         <div class="mt-3">
           <button class="btn btn-primary"
@@ -133,6 +133,7 @@ export default {
       items: ['Active Tasks 1', 'Active Tasks 2', 'Active Tasks 3'],
       currentItems: 'Active Tasks 1',
       showButtons: true,
+      openSidebar: false,
       datas: [
         {
           day: '2021-09-30',
