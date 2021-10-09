@@ -9,8 +9,8 @@
         <li v-for="link in links"
             :class="{'active': currentRouteName === link.to}"
             v-b-tooltip.hover.left="link.title" v-wave>
-          <nuxt-link :to="link.to">
-            <span class="material-icons-outlined drawerMenu-icon">{{ link.icon }}</span>
+          <nuxt-link :to="link.to" :style="link.icon ? null : 'justify-content: center'">
+            <span class="material-icons-outlined drawerMenu-icon" v-if="link.icon">{{ link.icon }}</span>
             <span class="drawerMenu-title" :class="value ? 'active': 'disabled'">{{ link.title }}</span>
           </nuxt-link>
         </li>
@@ -109,8 +109,13 @@ export default {
         z-index: 60;
       }
 
-      &.active::after {
-        transform: translate(-5px);
+      &.active {
+        & a {
+          color: #6f32c9;
+        }
+        &::after {
+          transform: translate(-5px);
+        }
       }
 
 
@@ -119,7 +124,7 @@ export default {
         background: #e7e9f8;
         transform: translateX(5px);
         & a {
-          color: var(--primary);
+          color: #6f32c9;
         }
       }
       & a {
