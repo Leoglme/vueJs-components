@@ -6,5 +6,9 @@ export const state = () => ({
     {icon: null, title: "boot", to: "/drawer-nav"},
     {icon: null, title: "boot", to: "/dropdown"},
     {icon: null, title: "boot", to: "/notification"},
+    {icon: null, title: "boot", to: "/scroll-timePicker"},
+    {icon: null, title: "boot", to: "/search-modal"},
+    {icon: null, title: "boot", to: "/table-list"},
+    {icon: null, title: "boot", to: "/time-picker"},
   ]
 })
