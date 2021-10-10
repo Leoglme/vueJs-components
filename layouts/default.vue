@@ -1,6 +1,6 @@
 <template>
   <div style="display: flex">
-    <DrawerNav v-model="open"/>
+    <DrawerNav v-model="openSidebar" :showToggle="false"/>
     <div class="container column is-10">
         <Nuxt />
       </div>
@@ -14,8 +14,16 @@ export default {
   components: {DrawerNav},
   data () {
     return {
-      open: true
+      openSidebar: true
     }
   }
 }
 </script>
+
+<style>
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

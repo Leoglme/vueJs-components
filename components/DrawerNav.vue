@@ -9,14 +9,14 @@
         <li v-for="link in links"
             :class="{'active': currentRouteName === link.to}"
             v-b-tooltip.hover.left="link.title" v-wave>
-          <nuxt-link :to="link.to" :style="link.icon ? null : 'justify-content: center'">
+          <nuxt-link :to="link.to" :style="link.icon ? null : 'margin-left: 16px;'">
             <span class="material-icons-outlined drawerMenu-icon" v-if="link.icon">{{ link.icon }}</span>
             <span class="drawerMenu-title" :class="value ? 'active': 'disabled'">{{ link.title }}</span>
           </nuxt-link>
         </li>
       </ul>
     </div>
-    <div class="drawerMenu-toggle" :class="{'active': value}" @click="$emit('input', !value)"/>
+    <div v-if="showToggle" class="drawerMenu-toggle" :class="{'active': value}" @click="$emit('input', !value)"/>
   </div>
 </template>
 
@@ -26,7 +26,8 @@ import route from "~/mixins/route";
 export default {
   name: 'DrawerNav',
   props: {
-    value: {type: Boolean, default: false}
+    value: {type: Boolean, default: false},
+    showToggle: {type: Boolean, default: true},
   },
   mixins: [route],
   computed: {

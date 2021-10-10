@@ -46,6 +46,7 @@ export default {
 $borderColor: #7957d5;
 $fonts: 'Poppins';
 .table__container {
+  width: 100%;
   margin-top: 35px;
   font-family: $fonts;
   font-size: 14px;

@@ -1,87 +1,12 @@
 <template>
-  <div>
-    <div class="buttons" v-if="showButtons">
-      <b-button @click="updateView('timePicker')" expanded>Show TimePicker</b-button>
-      <b-button @click="updateView('scrollTimer')" expanded>Show Scroll Timer</b-button>
-      <b-button @click="updateView('tableList')" expanded>TableList</b-button>
-      <b-button @click="updateView('bootstrapButton')" expanded>Custom Boostrap button</b-button>
-      <b-button @click="updateView('boostrapDropdown')" expanded>Custom Boostrap dropdown</b-button>
-      <b-button @click="updateView('searchModal')" expanded>Search modal</b-button>
-      <b-button @click="updateView('addButton')" expanded>Add Item Button</b-button>
-      <b-button @click="updateView('Notification')" expanded>Notification</b-button>
-      <b-button @click="updateView('DrawerNav')" expanded>DrawerNav</b-button>
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <h2 style="color: #2c3e50; margin-bottom: 20px;">Bienvenue sur Nuxt Js - Dibodev Components</h2>
+
+    <div>
+      <img style="width: 125px" src="@/assets/images/logo.png" alt="logo dibodev">
+      <img style="width: 125px" src="/favicon.ico" alt="logo nuxt">
     </div>
-
-    <div class="components" v-if="!showButtons">
-      <b-button variant="primary" @click="goBack()">Go back</b-button>
-
-      <TimePicker v-if="isVisible.timePicker"/>
-
-      <ScrollTimerPicker v-if="isVisible.scrollTimer"/>
-
-      <TableList v-model="datas" v-if="isVisible.tableList"/>
-
-      <BootstrapButton v-if="isVisible.bootstrapButton"/>
-
-      <Dropdown v-if="isVisible.boostrapDropdown"
-                :items="items"
-                color="outline-light"
-                v-model="currentItems">
-      </Dropdown>
-
-
-      <SearchModal v-if="isVisible.searchModal">
-
-      </SearchModal>
-      <Notification v-if="isVisible.Notification"/>
-
-
-      <DrawerNav v-if="isVisible.DrawerNav" v-model="openSidebar"/>
-      <div style="display:flex; flex-direction: column; justify-content: center" v-if="isVisible.addButton">
-        <div class="mt-3">
-          <button class="btn btn-primary"
-                  @click.prevent="handleOpen('openOne')"
-                  style="margin-left: 10px;">
-            Ouvrir 1
-          </button>
-          valueOne: {{ valueOne }}
-        </div>
-
-        <div class="mt-3">
-          <button class="btn btn-primary"
-                  @click.prevent="handleOpen('openTwo')"
-                  style="margin-left: 10px;">
-            Ouvrir 2
-          </button>
-          valueTwo: {{ valueTwo }}
-        </div>
-
-        <AddButton
-          ref="inputOne"
-          v-model="valueOne"
-          :open="openOne"
-          @onClose="closeModal('openOne')"
-          @onAdd="addProject"
-          textButton="Ajouter un projet"
-          placeholder="Enter the name for a new project or task..."
-        />
-
-        <AddButton
-          ref="inputTwo"
-          v-model="valueTwo"
-          :open="openTwo"
-          @onClose="closeModal('openTwo')"
-          @onAdd="addProject"
-          textButton="Ajouter un projet 2"
-          placeholder="Enter the name for a new project or task..."
-        />
-      </div>
-
-
-    </div>
-
   </div>
-
 </template>
 
 <script>
