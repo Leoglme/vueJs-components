@@ -95,7 +95,6 @@ export default {
       border-radius: 10px;
       cursor: pointer;
       transition: all .25s ease;
-
       &::after{
         content: "";
         position: absolute;
@@ -109,7 +108,6 @@ export default {
         transition: all .25s ease;
         z-index: 60;
       }
-
       &.active {
         & a {
           color: #6f32c9;
@@ -118,9 +116,6 @@ export default {
           transform: translate(-5px);
         }
       }
-
-
-
       &:hover {
         background: #e7e9f8;
         transform: translateX(5px);
@@ -163,7 +158,6 @@ export default {
     }
   }
 }
-
 .drawerMenu-header {
   height: 61px;
   width: 100%;

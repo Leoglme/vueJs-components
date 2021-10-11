@@ -1,6 +1,6 @@
 $theme-colors: (
-  'primary': #6f32c9,
-  'secondary': #833bec,
+  'primary': #3b51d5,
+  'secondary': #2c3e50,
   'success': #4bb063,
   'info': #ff7d50,
   'warning': #f7b801,
@@ -31,24 +31,36 @@ body {
       }
     }
   }
-  .btn-outline-#{light}{
+  .btn-outline-#{light}, .btn-#{light}{
     border-color: darken(#fff, 16%) !important;
     color: darken(#fff, 75.5%) !important;
 
     &:hover {
        background: darken(#fff, 8.3%) !important;
+       border-color: darken(#fff, 16%) !important;
     }
     &:active {
-      @if $color == 'light' {
-        color: map-get($theme-colors, "primary") !important;
-        border-color: map-get($theme-colors, "primary") !important;
-      }
+      color: map-get($theme-colors, "primary") !important;
+      border-color: map-get($theme-colors, "primary") !important;
     }
+  }
+}
+
+.btn-light {
+  &:focus {
+    border-color: darken(#fff, 16%) !important;
+  }
+  &:active {
+    background: #fff !important;
   }
 }
 
 @import '~/node_modules/bootstrap/scss/bootstrap.scss';
 @import "materialIcon";
+
+body {
+  background: #fafafa;
+}
 
 .btn {
   position: relative;
@@ -91,7 +103,13 @@ body {
   }
 }
 
-.dropdown-toggle.btn-outline-light {
+.dropdown-toggle.btn-light {
+  display: flex;
+  align-items: center;
+  min-width: 145px;
+}
+
+.dropdown-toggle.btn-outline-light, .dropdown-toggle.btn-light {
   & i {
     color: #797979;
   }
@@ -393,6 +411,27 @@ input, textarea {
 .bs-tooltip-right .tooltip-inner::after {
   left: 0.5px !important;
   border-radius:0 0 0 2px !important;
+}
+
+.filter-container {
+  background: #f8f8f8;
+}
+.filter-row {
+  padding: 14px 0;
+  border-bottom: 1px solid #eceeed;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  & .first-row .btn {
+    margin-top: 14px;
+  }
+}
+
+.vertical-separator {
+  width: 1px;
+  height: 20px;
+  background: #eceeed;
+  margin: 0 10px;
 }
 
 

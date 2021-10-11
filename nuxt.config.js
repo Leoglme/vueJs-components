@@ -35,6 +35,7 @@ export default {
     {src: './plugins/scrollPicker.js', ssr: false},
     {src: './plugins/toasted.js', ssr: false},
     {src: './plugins/ripple.js', ssr: false},
+    {src: './plugins/click-outside.js', ssr: false},
     '~/plugins/bootstrap.js',
   ],
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="m-5">
+  <div>
     <b-dropdown
       :no-caret="true"
       :dropright="drop === 'right'"
@@ -8,7 +8,8 @@
       :variant="color">
       <template #button-content>
         <i class="fas fa-chevron-down" v-if="drop === 'right'"/>
-        {{ value }}
+        <span class="material-icons-outlined" style="font-size: 18px;" v-if="icon">{{icon}}</span>
+        <span style="flex: 1; text-align: left;margin-left: 4px;" v-if="color === 'light'">{{ value }}</span>
         <i class="fas fa-chevron-down" style=" font-size: 13px; margin-left: 5px;"/>
       </template>
       <template>
@@ -33,10 +34,12 @@
        drop: {type: String, default: ''},
        items: {type: Array || Object, default: null},
        value: {type: String, default: ''},
+       icon: {type: String, default: null},
      },
    }
 </script>
 
-<style>
+<style scoped>
+
 
 </style>
