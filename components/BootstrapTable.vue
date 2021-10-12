@@ -1,5 +1,5 @@
 <template>
-  <div style="background: #fff">
+  <div>
     <div class="filter-container">
       <div class="filter-row first-row" style="justify-content: flex-end;">
         <button class="btn btn-light">
@@ -20,7 +20,7 @@
       <div class="filter-row">
         <searchBar v-model="search" placeholder="Rechercher un projet"/>
         <span class="vertical-separator"/>
-        <div style="display: flex; flex: 1; justify-content: flex-end; align-items: center">
+        <div class="flex-right">
           <Dropdown :items="status"
                     icon="hourglass_empty"
                     color="light"
@@ -42,18 +42,29 @@
 
       </div>
     </div>
-    <b-table
-      :items="items"
-      :fields="fields"
-      :sort-by.sync="sortBy"
-      :sort-desc.sync="sortDesc"
-      responsive="sm"
-    ></b-table>
 
-    <div>
-      Sorting By: <b>{{ sortBy }}</b>, Sort Direction:
-      <b>{{ sortDesc ? 'Descending' : 'Ascending' }}</b>
+    <div class="table-header">
+      <span class="small">1-48 sur 272 résultats</span>
+      <div class="flex-right">
+        <span class="small" style="margin-right: 12px">Résultats par page</span>
+        <b-dropdown
+          class="perPage-dropdown"
+          :no-caret="true"
+          variant="light">
+          <template #button-content>
+            <span style="flex: 1; text-align: left;margin-left: 4px;">{{ perPage }}</span>
+            <i class="fas fa-chevron-down" style="font-size: 13px; margin-left: 5px;"/>
+          </template>
+          <b-dropdown-item v-for="page in pageViews"
+                           :key="page"
+                           :active="page === perPage" @click.prevent="perPage = page">
+            {{ page }}
+          </b-dropdown-item>
+        </b-dropdown>
+      </div>
     </div>
+
+    <b-table hover :items="items" :fields="fields" head-variant="light" class="custom-table"></b-table>
   </div>
 </template>
 
@@ -67,27 +78,44 @@ export default {
   components: {Dropdown, searchBar},
   data() {
     return {
-      sortBy: 'age',
-      sortDesc: false,
-      fields: [
-        {key: 'last_name', sortable: true},
-        {key: 'first_name', sortable: true},
-        {key: 'age', sortable: true},
-        {key: 'isActive', sortable: false}
-      ],
       search: '',
-      items: [
-        {isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald'},
-        {isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw'},
-        {isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson'},
-        {isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney'}
-      ],
       status: ['Status', 'Active Tasks 2', 'Active Tasks 3'],
       currentStatus: 'Status',
       client: ['Clients', 'Active Tasks 2', 'Active Tasks 3'],
       currentClient: 'Clients',
       billing: ['Oui', 'Active Tasks 2', 'Active Tasks 3'],
       billingClient: 'Oui',
+
+      fields: [
+        {
+          key: 'last_name',
+          label: 'lastname',
+          sortable: true
+        },
+        {
+          key: 'first_name',
+          label: 'firstname',
+          sortable: true
+        },
+        {
+          key: 'age',
+          label: 'Age',
+          sortable: true,
+        },
+        {
+          key: 'status',
+          label: 'status',
+          sortable: true,
+        }
+      ],
+      pageViews: [10, 20, 30],
+      perPage: 20,
+      items: [
+        {isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald', status: 'SUPERADMIN'},
+        {isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw', status: 'Administrateur'},
+        {isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson', status: 'Responsable'},
+        {isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney', status: 'Utilisateur'}
+      ]
 
     }
   }
@@ -102,6 +130,7 @@ export default {
   margin-right: 8px;
   margin-left: 8px;
 }
+
 .text-bold {
   display: flex;
   align-items: center;
