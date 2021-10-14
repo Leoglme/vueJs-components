@@ -1,7 +1,7 @@
 <template>
   <div style="display: flex">
 <!--    <DrawerNav v-model="openSidebar" :showToggle="false"/>-->
-    <div style="width: 100%">
+    <div class="ctn">
       <Nuxt />
     </div>
 
@@ -21,10 +21,12 @@ export default {
 </script>
 
 <style lang="scss">
-  .container {
+  .ctn {
+    width: 100%;
+    height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
   }
 
   .menu {

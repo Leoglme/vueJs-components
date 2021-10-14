@@ -11,5 +11,6 @@ export const state = () => ({
     {icon: null, title: "Table", to: "/table-list"},
     {icon: null, title: "Time picker", to: "/time-picker"},
     {icon: null, title: "Bootstrap table", to: "/bootstrap-table"},
+    {icon: null, title: "Bootstrap Pagination", to: "/bootstrap-pagination"},
   ]
 })
