@@ -666,6 +666,40 @@ input, textarea {
 }
 
 
+//tabs
+
+.nav-link {
+  padding: 0;
+  color: map-get($theme-colors, "secondary") !important;
+
+  &.active {
+    border: 0;
+    border-bottom: 2px solid #3b51d5 !important;
+    color: map-get($theme-colors, "primary") !important;
+  }
+
+}
+
+.nav-item {
+  &:hover .nav-link {
+    border-color: transparent;
+    & .tab-title {
+      border-radius: 25px 25px 0px 0px;
+      color: rgb(44, 62, 80) !important;
+      background: #e7e9f8 !important;
+      transition: all .25s ease;
+    }
+  }
+}
+
+.tab-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 8px 16px;
+}
+
+
 @keyframes slideToLeft {
   from {
     transform: translateX(145%) !important;
