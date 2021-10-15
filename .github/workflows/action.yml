@@ -1,4 +1,4 @@
-name: FTP Test
+name: FTP Deploy Nuxt
 
 on:
   push:
@@ -15,4 +15,3 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.ftp_password }}
-          server-dir: /dist
