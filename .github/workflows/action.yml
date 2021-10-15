@@ -15,4 +15,4 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.ftp_password }}
-          server-dir: /prod.dibodev.com
+          server-dir: /dist
