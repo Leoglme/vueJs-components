@@ -1,29 +1,20 @@
-name: Deploy to Github Pages
+name: FTP Test
+
 on:
   push:
-    branches:
-      - master
+    branches: [master]
 
 jobs:
   deploy:
-    name: Deploy Application
+    name: 🚀 Deploy website every commit
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@master
-      - name: Create Node Environment
-        uses: actions/setup-node@v1
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: 📂 Sync files
+        uses: ./dist
         with:
-          node-version: 10.x
-      - name: Install Packages and Build Application
-        run: |
-          npm install -g @vue/cli yarn
-          yarn install
-          yarn build
-      - name: Deploy
-        uses: s0/git-publish-subdir-action@master
-        env:
-          REPO: self
-          BRANCH: master
-          FOLDER: dist
-          GITHUB_TOKEN: ${{ secrets.O2SWITCH_TOKEN }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.ftp_password }}
