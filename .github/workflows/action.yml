@@ -10,10 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
-        uses: Leoglme/vueJs-components@master
+        uses: actions/checkout@master
 
       - name: 📂 Sync files
-        uses: ./
+        uses: Leoglme/vueJs-components@master
+        env:
+          BRANCH: master
+          FOLDER: dist
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
