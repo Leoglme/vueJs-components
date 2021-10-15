@@ -11,9 +11,6 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@master
-
-      - name: 📂 Sync files
-        uses: Leoglme/vueJs-components@master
         env:
           BRANCH: master
           FOLDER: dist
