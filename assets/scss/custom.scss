@@ -700,6 +700,20 @@ input, textarea {
 }
 
 
+//modal
+
+.fade .modal-dialog{
+  transform: scale(0) !important;
+  opacity: 0 !important;
+  transition: all .25s linear !important;
+}
+
+.fade.show .modal-dialog{
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+
 @keyframes slideToLeft {
   from {
     transform: translateX(145%) !important;
