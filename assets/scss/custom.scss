@@ -702,15 +702,31 @@ input, textarea {
 
 //modal
 
-.fade .modal-dialog{
-  transform: scale(0) !important;
-  opacity: 0 !important;
-  transition: all .25s linear !important;
+.modal.fade {
+  transition: all .25s ease !important;
 }
 
-.fade.show .modal-dialog{
-  opacity: 1 !important;
-  transform: scale(1) !important;
+.fade .modal-dialog{
+  transition: all .25s ease !important;
+  animation:rebound .4s;
+}
+.prevent-modal .modal-dialog .modal-content{
+  animation:reboundClick .3s!important
+}
+
+
+
+@keyframes rebound {
+  0% {transform:scale(.8)}
+  40% {transform:scale(1.08)}
+  80% {transform:scale(.98)}
+  to {transform:scale(1)}
+}
+@keyframes reboundClick {
+  0% {transform:scale(1)}
+  40% {transform:scale(1.05)}
+  80% {transform:scale(.96)}
+  to {transform:scale(1)}
 }
 
 

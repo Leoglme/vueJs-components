@@ -1,6 +1,11 @@
 <template>
   <div class="wrap-ctn">
-     <button class="btn btn-primary" @click="handleOne">Click</button>
+    <b-button v-b-modal.modal-1>Launch demo modal</b-button>
+
+    <b-modal @hide="onHide"
+             id="modal-1" title="BootstrapVue">
+      <p class="my-4">Hello from modal!</p>
+    </b-modal>
   </div>
 </template>
 
@@ -9,29 +14,19 @@
 export default {
   components: {},
   data() {
-    return {}
+    return {
+    }
   },
   methods: {
-    handleOne(){
-      this.$bvModal.msgBoxConfirm('Please confirm that you want to delete everything.', {
-        title: 'Please Confirm',
-        size: 'sm',
-        buttonSize: 'sm',
-        okVariant: 'danger',
-        okTitle: 'YES',
-        cancelTitle: 'NO',
-        footerClass: 'p-2',
-        noCloseOnBackdrop: true,
-        hideHeaderClose: false,
-        centered: true
-      })
-        .then(value => {
-          console.log(value);
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    }
+    onHide(evt) {
+      if(evt.trigger === "backdrop"){
+        evt.preventDefault();
+        evt.target.classList.add("prevent-modal");
+        setTimeout(() => {
+          evt.target.classList.remove("prevent-modal");
+        }, 400)
+      }
+    },
   }
 }
 </script>
