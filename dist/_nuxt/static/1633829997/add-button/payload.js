@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/add-button", {data:[{}],fetch:{},mutations:[]});

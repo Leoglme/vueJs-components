@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/drawer-nav", {data:[{}],fetch:{},mutations:[]});

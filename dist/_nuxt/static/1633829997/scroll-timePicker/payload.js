@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/scroll-timePicker", {data:[{}],fetch:{},mutations:[]});
