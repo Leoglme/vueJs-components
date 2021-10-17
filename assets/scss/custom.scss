@@ -737,7 +737,9 @@ input, textarea {
 .nav-link {
   padding: 0;
   color: map-get($theme-colors, "secondary") !important;
-
+  &:focus {
+    border-color: transparent !important;
+  }
   &.active {
     border: 0;
     border-bottom: 2px solid #3b51d5 !important;
@@ -746,7 +748,16 @@ input, textarea {
 
 }
 
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-top-color: transparent !important;
+}
+
 .nav-item {
+  &:focus {
+    border-color: transparent !important;
+  }
   &:hover .nav-link {
     border-color: transparent;
     & .tab-title {

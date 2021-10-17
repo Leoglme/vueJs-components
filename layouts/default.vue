@@ -1,6 +1,6 @@
 <template>
   <div style="display: flex">
-<!--    <DrawerNav v-model="openSidebar" :showToggle="false"/>-->
+    <DrawerNav v-model="openSidebar" :showToggle="false"/>
     <div class="ctn">
       <Nuxt />
     </div>
