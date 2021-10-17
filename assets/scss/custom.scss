@@ -8,7 +8,7 @@ $theme-colors: (
   'success': #4bb063,
   'info': #ff7d50,
   'warning': #f7b801,
-  'danger': #ff007f,
+  'danger': #dc3545,
   'light': #fff,
   'dark': #001738,
 );
@@ -121,6 +121,7 @@ body {
   }
 }
 
+
 .custom-table.table.b-table > thead > tr > [aria-sort], .table.b-table > tfoot > tr > [aria-sort] {
   background-size: 2em 1.9em !important;
 }
@@ -183,6 +184,71 @@ body {
     & i {
       color: map-get($theme-colors, "primary") !important;
       transform: rotate(180deg);
+    }
+  }
+}
+
+.btn-link {
+  font-weight: 500;
+  color: map-get($theme-colors, "primary");
+  outline: none;
+  list-style: none;
+  user-select: none;
+  text-decoration: none;
+  border: 0;
+  transition: all .25s ease;
+  border-radius: 12px;
+  padding: 10px 30px;
+  font-size: 12.8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before {
+      content: "";
+      background: rgba(map-get($theme-colors, "primary"),.1);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      pointer-events: none;
+      transition: all .25s ease;
+      z-index: -1;
+      transform: scale(.5);
+      opacity: 0;
+      box-sizing: border-box;
+  }
+  &:active {
+    transform: scale(.9) !important;
+  }
+  &:hover {
+    color: map-get($theme-colors, "primary") !important;
+
+    &::before {
+      z-index: 30;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &.grey {
+    color: rgb(30, 30, 30);
+    &:hover {
+      color: rgb(30, 30, 30) !important;
+    }
+    &::before {
+      background: rgba(30, 30, 30,.1);
+    }
+  }
+  &.danger {
+    color: map-get($theme-colors, "danger");
+    &:hover {
+      color: map-get($theme-colors, "danger") !important;
+    }
+    &::before {
+      background: rgba(map-get($theme-colors, "danger"),.1);
     }
   }
 }
@@ -702,6 +768,50 @@ input, textarea {
 
 //modal
 
+.modal {
+  overflow-x: unset !important;
+  overflow-y: unset !important;
+  user-select: none;
+}
+
+.modal-header {
+  padding: 10px 16px !important;
+  border: 0 !important;
+  & .modal-title {
+    padding: 10px 10px 0;
+    line-height: 1.25;
+    font-size: 16px;
+  }
+}
+
+.modal-body {
+  padding: 10px 16px;
+  & p {
+    font-size: .8rem;
+    padding: 0 10px;
+    margin: 20px 0;
+    line-height: 1.7;
+  }
+}
+
+.modal-footer {
+  padding: 0 16px 10px;
+  border: 0;
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  opacity: 1 !important;
+}
+
+.modal-content{
+  color: rgb(44, 62, 80);
+  min-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 5px 30px 0 rgba(0,0,0,.5);
+  margin: auto;
+}
+
 .modal.fade {
   transition: all .25s ease !important;
 }
@@ -712,6 +822,63 @@ input, textarea {
 }
 .prevent-modal .modal-dialog .modal-content{
   animation:reboundClick .3s!important
+}
+
+button.close {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 5px 20px 0;
+  background: #fff;
+  z-index: 200;
+  border: 0;
+  & i {
+    width: 34px;
+    height: 34px;
+    opacity: .7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all .25s ease;
+
+    &::after, &::before {
+      background: map-get($theme-colors, "primary");
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 2px;
+      border-radius: 2px;
+      transition: all .3s ease;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+    }
+  }
+  &:hover {
+    box-shadow: 0 0 4px 0 rgba(0,0,0, .05);
+    transform: translate(-2px,2px);
+
+    & i {
+      opacity: 1;
+    }
+
+    & i::after, & i::before {
+      width: 14px;
+      transform: rotate(180deg);
+    }
+  }
 }
 
 
